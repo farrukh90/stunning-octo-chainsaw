@@ -15,7 +15,10 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
-
+      - name: Clone a repo
+        run:
+          git clone https://github.com/farrukh90/nodejs.git
+          
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
