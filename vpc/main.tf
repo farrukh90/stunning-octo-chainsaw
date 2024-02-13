@@ -16,7 +16,7 @@ resource "aws_security_group" "allow_tls" {
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = ["127.0.0.1/32"]
+    cidr_blocks      = [var.cidr_blocks]
   }
 
 
@@ -34,7 +34,13 @@ resource "aws_security_group" "allow_tls" {
   
 }
 
+variable cidr_blocks {
+  default = "0.0.0.0/0"
+}
 
+variable cidr_blocks {
+  default = "0.0.0.0/0"
+}
 
 resource "aws_s3_bucket_public_access_block" "example-public-access-block" {
   bucket = aws_s3_bucket.example.id
