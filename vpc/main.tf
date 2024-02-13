@@ -67,3 +67,15 @@ resource "aws_security_group" "allow_tls2" {
     Name = "allow_tls"
   }
 }
+
+# Example of duplicated AWS S3 bucket resource definitions
+
+resource "aws_s3_bucket" "bucket1" {
+  bucket = "my-unique-bucket-name-1"
+  acl    = "private"
+}
+
+resource "aws_s3_bucket" "bucket2" {
+  bucket = "my-unique-bucket-name-2"
+  acl    = "private"
+}
